@@ -1,19 +1,15 @@
 #include<stdio.h>
-int print_element(int array[],int n, int i,int index)
+int print_element(int array[],int sizeOfArry, int position)
 {
-	int j=0;
-	if(n>1024 )
+	int i=0,j=0;
+	if(sizeOfArry > 1024 )
 	{
 		printf("size of the array should be 1024\n");
-		return 0;
+		return OPER_FAIL_ARRAY_FULL;
 	}
-	printf("enter array elements\n");
-	// scanf("%d",&n);
-	for(i=0;i<n;i++)
+	for(i=0;i<sizeOfArry;i++)
 	{
 loop1:
-	//	scanf("%d",&array[i]);
-	//	array[i]=array_ele(i);
 		for( j=0;j<i;j++)
 		{
 			if(array[i]==0)
@@ -24,18 +20,17 @@ loop1:
 			}
 			if(array[j]==array[i])
 			{
-				return -3;
+				return OPER_FAIL_ARRAY_DUP;
 			}
 		}
 	}
 loop:
 	printf("enter position of element number\n");
-//	scanf("%d",&i);
-	if(index < 0 || index > n-1)
+	if(position < 0 || position > sizeOfArry-1)
 	{
-		index=index_input(index);//index input function
+		position=index_input(position);
 		goto loop;
 	}
-	printf("%d\n",array[index]);
-	return 0;
+	printf("%d\n",array[position]);
+	return OPER_SUCCESS;
 }
