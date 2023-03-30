@@ -1,4 +1,5 @@
 #include<stdio.h>
+#include"operation.h"
 int print_element(int array[],int sizeOfArry, int position)
 {
 	int i=0,j=0;
@@ -8,7 +9,7 @@ int print_element(int array[],int sizeOfArry, int position)
 		return OPER_FAIL_ARRAY_FULL;
 	}
 	for(i=0;i<sizeOfArry;i++)
-	{
+	{ 
 loop1:
 		for( j=0;j<i;j++)
 		{
